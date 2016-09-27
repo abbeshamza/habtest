@@ -1,0 +1,2 @@
+apr_program:
+    resource: "ProjectBundle/Resources/config/patch_format.yml"

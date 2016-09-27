@@ -1,0 +1,22 @@
+project:
+    rename_project:
+        op: rename
+        path: /name
+        #params: [name]
+    update_status:
+        op: change
+        path: /status
+testcase:
+    disable_testcase:
+        op: disable
+        path: /disable
+    enable_testcase:
+        op: enable
+        path: /enable
+testbooklet:
+    disable_testbooklet:
+        op: disable
+        path: /disable
+    enable_testbooklet:
+        op: enable
+        path: /enable

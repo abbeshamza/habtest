@@ -1,0 +1,241 @@
+<?php
+/**
+ * This file defines the Build Manager
+ *
+ * @category AppBundle
+ * @package Entity
+ * @author Fondative <dev devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since File available since Release 1.0.0
+ */
+namespace AppBundle\Entity;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation\Exclude;
+use JMS\Serializer\Annotation\PreSerialize;
+use JMS\Serializer\Annotation as Serialiser ;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+
+/**
+ * Class TestCase
+ *
+ * @package Entity
+ * @author Fondative <devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since Class available since Release 1.0.0
+ *
+ */
+/**
+ * TestCase
+ *
+ * @ExclusionPolicy("all")
+ * @ORM\Entity(repositoryClass="ProjectBundle\Repository\TestCaseRepository")
+ * @ORM\Table(name="test_case", indexes={@ORM\Index(name="fk_test_case_test_booklet1_idx", columns={"test_booklet_idtest_company"})})
+ * @ORM\Entity
+ */
+class TestCase
+{
+    /**
+     * @Expose
+     * @var integer
+     *
+     * @ORM\Column(name="idtest_case", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idtestCase;
+
+    /**
+     *  @Expose
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     *  @Expose
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=45, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="is_deleted", type="string", length=45, nullable=true)
+     */
+    private $isDeleted;
+
+    /**
+     * @var \TestBooklet
+     *
+     * @ORM\ManyToOne(targetEntity="TestBooklet")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="test_booklet_idtest_company", referencedColumnName="idtest_company")
+     * })
+     */
+    private $testBooklet;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="TestCompany", mappedBy="testCase")
+     */
+    private $testCompany;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->testCompany = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return TestCase
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return TestCase
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set isDeleted
+     *
+     * @param string $isDeleted
+     *
+     * @return TestCase
+     */
+    public function setIsDeleted($isDeleted)
+    {
+        $this->isDeleted = $isDeleted;
+
+        return $this;
+    }
+
+    /**
+     * Get isDeleted
+     *
+     * @return string
+     */
+    public function getIsDeleted()
+    {
+        return $this->isDeleted;
+    }
+
+    /**
+     * Get idtestCase
+     *
+     * @return integer
+     */
+    public function getIdtestCase()
+    {
+        return $this->idtestCase;
+    }
+
+    /**
+     * Set testBooklet
+     *
+     * @param \AppBundle\Entity\TestBooklet $testBooklet
+     *
+     * @return TestCase
+     */
+    public function setTestBooklet(\AppBundle\Entity\TestBooklet $testBooklet = null)
+    {
+        $this->testBooklet = $testBooklet;
+
+        return $this;
+    }
+
+    /**
+     * Get testBooklet
+     *
+     * @return \AppBundle\Entity\TestBooklet
+     */
+    public function getTestBooklet()
+    {
+        return $this->testBooklet;
+    }
+
+    /**
+     * Add testCompany
+     *
+     * @param \AppBundle\Entity\TestCompany $testCompany
+     *
+     * @return TestCase
+     */
+    public function addTestCompany(\AppBundle\Entity\TestCompany $testCompany)
+    {
+        $this->testCompany[] = $testCompany;
+
+        return $this;
+    }
+
+    /**
+     * Remove testCompany
+     *
+     * @param \AppBundle\Entity\TestCompany $testCompany
+     */
+    public function removeTestCompany(\AppBundle\Entity\TestCompany $testCompany)
+    {
+        $this->testCompany->removeElement($testCompany);
+    }
+
+    /**
+     * Get testCompany
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTestCompany()
+    {
+        return $this->testCompany;
+    }
+}

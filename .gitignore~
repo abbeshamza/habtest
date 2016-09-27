@@ -1,0 +1,6 @@
+app/cache/*
+app/logs/*
+.idea/workspace.xml
+vendor/*
+web/bundles/*
+

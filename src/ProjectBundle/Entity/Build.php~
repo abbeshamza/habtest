@@ -1,0 +1,71 @@
+<?php
+
+namespace ProjectBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Build
+ *
+ * @ORM\Table(name="Build", indexes={@ORM\Index(name="fk_Build_project1_idx", columns={"project_id"})})
+ * @ORM\Entity
+ */
+class Build
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_folder", type="string", length=45, nullable=true)
+     */
+    private $nameFolder;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="is_deleted", type="string", length=45, nullable=true)
+     */
+    private $isDeleted;
+
+    /**
+     * @var \Project
+     *
+     * @ORM\ManyToOne(targetEntity="Project")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="project_id", referencedColumnName="id")
+     * })
+     */
+    private $project;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="CompanyTest", mappedBy="build")
+     */
+    private $companyTestcompanyTest;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->companyTestcompanyTest = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

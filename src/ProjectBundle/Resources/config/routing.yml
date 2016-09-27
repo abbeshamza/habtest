@@ -1,0 +1,20 @@
+projet_rest:
+    resource: ProjectBundle\Controller\ProjectController
+    type:     rest
+    name_prefix:  rest
+build_rest:
+    resource: ProjectBundle\Controller\BuildController
+    type:     rest
+    name_prefix:  rest
+company_rest:
+    resource: ProjectBundle\Controller\TestCompanyController
+    type:     rest
+    name_prefix:  rest
+testCase_rest:
+    resource: ProjectBundle\Controller\TestCaseController
+    type:     rest
+    name_prefix:  rest
+testBooklet_rest:
+    resource: ProjectBundle\Controller\TestBookletController
+    type:     rest
+    name_prefix:  rest

@@ -1,0 +1,69 @@
+<?php
+
+namespace ProjectBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TestCase
+ *
+ * @ORM\Table(name="test_case")
+ * @ORM\Entity
+ */
+class TestCase
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name_file", type="string", length=45, nullable=true)
+     */
+    private $nameFile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="is_deleted", type="string", length=45, nullable=true)
+     */
+    private $isDeleted;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="CompanyTest", inversedBy="testCaseTestCase")
+     * @ORM\JoinTable(name="company_has_test_case",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="test_case_id_test_case", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="Company_test_id_company_test", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $companyTestCompanyTest;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->companyTestCompanyTest = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

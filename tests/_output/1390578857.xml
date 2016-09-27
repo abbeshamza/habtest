@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="1" tests="3" assertions="0" failures="3" errors="0" time="106.963535">
+    <testcase name="New_Program_Test1" file="/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/testCompanies/3/New_Program_Test1Cept.php" feature="login as a prospect to add a member" assertions="0" time="35.923833">
+      <failure type="Codeception\Exception\ElementNotFound">login as a prospect to add a member (New_Program_Test1Cept)
+Link or Button or CSS or XPath '//button[@aria-label='Se connecter']' was not found.
+
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/_support/_generated/AcceptanceTesterActions.php:450
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/controllers/UserController.php:43
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/scripts/New_Program_User/New_Program_Test1Cept.php:15
+</failure>
+    </testcase>
+    <testcase name="New_Program_Test2" file="/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/testCompanies/3/New_Program_Test2Cept.php" feature="login as a easymember1" assertions="0" time="35.534563">
+      <failure type="Codeception\Exception\ElementNotFound">login as a easymember1 (New_Program_Test2Cept)
+Link or Button or CSS or XPath '//button[@aria-label='Se connecter']' was not found.
+
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/_support/_generated/AcceptanceTesterActions.php:450
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/controllers/UserController.php:43
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/scripts/New_Program_User/New_Program_Test2Cept.php:15
+</failure>
+    </testcase>
+    <testcase name="New_Program_Test3" file="/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/testCompanies/3/New_Program_Test3Cept.php" feature="login as a member to verify easymember2" assertions="0" time="35.505139">
+      <failure type="Codeception\Exception\ElementNotFound">login as a member to verify easymember2 (New_Program_Test3Cept)
+Link or Button or CSS or XPath '//button[@aria-label='Se connecter']' was not found.
+
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/_support/_generated/AcceptanceTesterActions.php:450
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/controllers/UserController.php:43
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/scripts/New_Program_User/New_Program_Test3Cept.php:15
+</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

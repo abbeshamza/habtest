@@ -1,0 +1,43 @@
+parameters:
+    project.project_manager.class: ProjectBundle\Manager\ProjectManager
+    project.build_manager.class: ProjectBundle\Manager\BuildManager
+    project.file_manager.class: ProjectBundle\Manager\FileManager
+    project.typefile_manager.class: ProjectBundle\Manager\FileTypeManager
+    project.testbooklet_manager.class: ProjectBundle\Manager\TestBookletManager
+    project.typeoftest_manager.class: ProjectBundle\Manager\TypeOfTestManager
+    project.testcase_manager.class: ProjectBundle\Manager\TestCaseManager
+    project.testcompany_manager.class: ProjectBundle\Manager\CompanyTestManager
+    project.result_manager.class: ProjectBundle\Manager\ResultManager
+    project.resultdetail_manager.class: ProjectBundle\Manager\ResultDetailManager
+
+services:
+    test_project.project_manager:
+        class : "%project.project_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    test_project.build_manager:
+        class : "%project.build_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    test_project.file_manager:
+        class : "%project.file_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    test_project.typefile_manager:
+        class : "%project.typefile_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    test_project.testbooklet_manager:
+        class : "%project.testbooklet_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    test_project.typeoftest_manager:
+        class : "%project.typeoftest_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    test_project.testcase_manager:
+        class : "%project.testcase_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    test_project.testcompany_manager:
+        class : "%project.testcompany_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    test_project.result_manager:
+        class : "%project.result_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']
+    test_project.resultdetail_manager:
+        class : "%project.resultdetail_manager.class%"
+        arguments:    ['@doctrine.orm.entity_manager', '@service_container']

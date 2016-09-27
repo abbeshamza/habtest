@@ -1,0 +1,213 @@
+<?php
+/**
+ * This file defines the Build Manager
+ *
+ * @category AppBundle
+ * @package Entity
+ * @author Fondative <dev devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since File available since Release 1.0.0
+ */
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * Class TestCompany
+ *
+ * @package Entity
+ * @author Fondative <devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since Class available since Release 1.0.0
+ *
+ */
+/**
+ * TestCompany
+ *
+ * @ORM\Table(name="test_company")
+ * @ORM\Entity
+ */
+class TestCompany
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idtest_company", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idtestCompany;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="info", type="string", length=45, nullable=true)
+     */
+    private $info;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="is_deleted", type="string", length=45, nullable=true)
+     */
+    private $isDeleted;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Build", mappedBy="testCompanytestCompany")
+     */
+    private $buildbuild;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="TestCase", inversedBy="testCompany")
+     * @ORM\JoinTable(name="test_company_has_test_case",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="test_company_id", referencedColumnName="idtest_company")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="test_case_id", referencedColumnName="idtest_case")
+     *   }
+     * )
+     */
+    private $testCase;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->buildbuild = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->testCase = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    /**
+     * Set info
+     *
+     * @param string $info
+     *
+     * @return TestCompany
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+
+        return $this;
+    }
+
+    /**
+     * Get info
+     *
+     * @return string
+     */
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    /**
+     * Set isDeleted
+     *
+     * @param string $isDeleted
+     *
+     * @return TestCompany
+     */
+    public function setIsDeleted($isDeleted)
+    {
+        $this->isDeleted = $isDeleted;
+
+        return $this;
+    }
+
+    /**
+     * Get isDeleted
+     *
+     * @return string
+     */
+    public function getIsDeleted()
+    {
+        return $this->isDeleted;
+    }
+
+    /**
+     * Get idtestCompany
+     *
+     * @return integer
+     */
+    public function getIdtestCompany()
+    {
+        return $this->idtestCompany;
+    }
+
+    /**
+     * Add testCase
+     *
+     * @param \AppBundle\Entity\TestCase $testCase
+     *
+     * @return TestCompany
+     */
+    public function addTestCase(\AppBundle\Entity\TestCase $testCase)
+    {
+        $this->testCase[] = $testCase;
+
+        return $this;
+    }
+
+    /**
+     * Remove testCase
+     *
+     * @param \AppBundle\Entity\TestCase $testCase
+     */
+    public function removeTestCase(\AppBundle\Entity\TestCase $testCase)
+    {
+        $this->testCase->removeElement($testCase);
+    }
+
+    /**
+     * Get testCase
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTestCase()
+    {
+        return $this->testCase;
+    }
+
+    /**
+     * Add buildbuild
+     *
+     * @param \AppBundle\Entity\Build $buildbuild
+     *
+     * @return TestCompany
+     */
+    public function addBuildbuild(\AppBundle\Entity\Build $buildbuild)
+    {
+        $this->buildbuild[] = $buildbuild;
+
+        return $this;
+    }
+
+    /**
+     * Remove buildbuild
+     *
+     * @param \AppBundle\Entity\Build $buildbuild
+     */
+    public function removeBuildbuild(\AppBundle\Entity\Build $buildbuild)
+    {
+        $this->buildbuild->removeElement($buildbuild);
+    }
+
+    /**
+     * Get buildbuild
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBuildbuild()
+    {
+        return $this->buildbuild;
+    }
+}

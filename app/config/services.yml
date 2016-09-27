@@ -1,0 +1,3 @@
+imports:
+    - { resource: "@ProjectBundle/Resources/config/services.yml" }
+    - { resource: "@AppBundle/Resources/config/services.yml" }

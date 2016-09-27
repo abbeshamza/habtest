@@ -1,0 +1,22 @@
+parameters:
+    core.cmd.class: AppBundle\Core\CmdShell
+    api.patch.data.format.validator.class: AppBundle\Validator\ApiPatchDataFormatValidator
+    #core.event.exception_listener.class: AppBundle\Listener\ApiExceptionListener
+
+services:
+    core_cmd_manager:
+        class : "%core.cmd.class%"
+        arguments:    ['@service_container']
+    #api.kernel.listener:
+     #   class: %core.event.exception_listener.class%
+      #  arguments: ["@kernel"]
+       # tags:
+        #    - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+    get_set_method_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+        tags:
+            - { name: serializer.normalizer }
+    api.patch.data.format.validator:
+        class: %api.patch.data.format.validator.class%
+        arguments: ["%patch.format%"]
+

@@ -1,0 +1,183 @@
+<?php
+/**
+ * This file defines the Build Manager
+ *
+ * @category AppBundle
+ * @package Entity
+ * @author Fondative <dev devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since File available since Release 1.0.0
+ */
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+
+
+/**
+ * Class Resultat
+ *
+ * @package Entity
+ * @author Fondative <devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since Class available since Release 1.0.0
+ *
+ */
+/**
+ * Resultat
+ *
+ * @ORM\Table(name="resultat", indexes={@ORM\Index(name="fk_resultat_test_company1_idx", columns={"test_company_id", "build_id"}), @ORM\Index(name="IDX_E7DB5DE2ECA8ACEF", columns={"test_company_id"})})
+ * @ORM\Entity
+ */
+class Resultat
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idresultat", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idresultat;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=45, nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="date", type="string", length=45, nullable=true)
+     */
+    private $date;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="build_id", type="integer", nullable=false)
+     */
+    private $buildId;
+
+    /**
+     * @var \TestCompany
+     *
+     * @ORM\ManyToOne(targetEntity="TestCompany")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="test_company_id", referencedColumnName="idtest_company")
+     * })
+     */
+    private $testCompany;
+
+
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Resultat
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set date
+     *
+     * @param string $date
+     *
+     * @return Resultat
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return string
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set buildId
+     *
+     * @param integer $buildId
+     *
+     * @return Resultat
+     */
+    public function setBuildId($buildId)
+    {
+        $this->buildId = $buildId;
+
+        return $this;
+    }
+
+    /**
+     * Get buildId
+     *
+     * @return integer
+     */
+    public function getBuildId()
+    {
+        return $this->buildId;
+    }
+
+    /**
+     * Get idresultat
+     *
+     * @return integer
+     */
+    public function getIdresultat()
+    {
+        return $this->idresultat;
+    }
+
+    /**
+     * Set testCompany
+     *
+     * @param \AppBundle\Entity\TestCompany $testCompany
+     *
+     * @return Resultat
+     */
+    public function setTestCompany(\AppBundle\Entity\TestCompany $testCompany = null)
+    {
+        $this->testCompany = $testCompany;
+
+        return $this;
+    }
+
+    /**
+     * Get testCompany
+     *
+     * @return \AppBundle\Entity\TestCompany
+     */
+    public function getTestCompany()
+    {
+        return $this->testCompany;
+    }
+}

@@ -1,0 +1,26 @@
+####
+#
+# Jenkins Configuration
+#
+# This file is used by jenkins. This file will be copied before
+# phpunit tests run, etc.
+#
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     localhost
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+
+    mailer_transport:  smtp
+    mailer_host:       localhost
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    framework_ide:   ~
+    developer_email: ~
+    enable_profiler: false

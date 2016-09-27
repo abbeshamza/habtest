@@ -1,0 +1,232 @@
+<?php
+/**
+ * This file defines the Build Manager
+ *
+ * @category AppBundle
+ * @package Entity
+ * @author Fondative <dev devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since File available since Release 1.0.0
+ */
+namespace AppBundle\Entity;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation\Exclude;
+use JMS\Serializer\Annotation\PreSerialize;
+use JMS\Serializer\Annotation as Serialiser ;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+
+/**
+ * Class File
+ *
+ * @package Entity
+ * @author Fondative <devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since Class available since Release 1.0.0
+ *
+ */
+
+
+/**
+ * File
+ *
+ *
+ * @ExclusionPolicy("all")
+ * @ORM\Entity(repositoryClass="ProjectBundle\Repository\FileRepository")
+ * @ORM\Table(name="file", indexes={@ORM\Index(name="fk_page_projet1_idx", columns={"projet_idprojet"}), @ORM\Index(name="fk_file_type1_idx", columns={"type_idtype"})})
+ * @ORM\Entity
+ */
+class File
+{
+    /**
+     *  @Expose
+     * @var integer
+     *
+     * @ORM\Column(name="idpage", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idpage;
+
+    /**
+     *  @Expose
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     *  @Expose
+     * @var string
+     *
+     * @ORM\Column(name="info", type="string", length=45, nullable=true)
+     */
+    private $info;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="is_deleted", type="string", length=45, nullable=true)
+     */
+    private $isDeleted;
+
+    /**
+     *  @Expose
+     * @var \Project
+     *
+     * @ORM\ManyToOne(targetEntity="Project")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="projet_idprojet", referencedColumnName="idproject")
+     * })
+     */
+    private $project;
+
+    /**
+     *  @Expose
+     * @var \TypeFile
+     *
+     * @ORM\ManyToOne(targetEntity="TypeFile")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="type_idtype", referencedColumnName="idtype")
+     * })
+     */
+    private $type;
+
+
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return File
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set info
+     *
+     * @param string $info
+     *
+     * @return File
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+
+        return $this;
+    }
+
+    /**
+     * Get info
+     *
+     * @return string
+     */
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    /**
+     * Set isDeleted
+     *
+     * @param string $isDeleted
+     *
+     * @return File
+     */
+    public function setIsDeleted($isDeleted)
+    {
+        $this->isDeleted = $isDeleted;
+
+        return $this;
+    }
+
+    /**
+     * Get isDeleted
+     *
+     * @return string
+     */
+    public function getIsDeleted()
+    {
+        return $this->isDeleted;
+    }
+
+    /**
+     * Get idpage
+     *
+     * @return integer
+     */
+    public function getIdpage()
+    {
+        return $this->idpage;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \AppBundle\Entity\TypeFile $type
+     *
+     * @return File
+     */
+    public function setType(\AppBundle\Entity\TypeFile $type = null)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \AppBundle\Entity\TypeFile
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set projetprojet
+     *
+     * @param \AppBundle\Entity\Project $projetprojet
+     *
+     * @return File
+     */
+    public function setProject(\AppBundle\Entity\Project $projetprojet = null)
+    {
+        $this->project = $projetprojet;
+
+        return $this;
+    }
+
+    /**
+     * Get projetprojet
+     *
+     * @return \AppBundle\Entity\Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+}

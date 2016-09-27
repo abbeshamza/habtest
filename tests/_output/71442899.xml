@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="1" tests="3" assertions="2" failures="2" errors="0" time="75.994708">
+    <testcase name="Easy_Emails1" file="/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/testCompanies/2/Easy_Emails1Cept.php" feature="login as a member" assertions="1" time="28.039458">
+      <failure type="Codeception\Exception\ElementNotFound">login as a member (Easy_Emails1Cept)
+Element located either by name, CSS or XPath '//div[@id='global']/div/div/div[1]/div/div[2]/md-content/div[2]/div/md-content[1]/div/ul/li/div[1]/span[2]' was not found.
+
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/_support/_generated/AcceptanceTesterActions.php:306
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/controllers/UserController.php:107
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/scripts/Easy_Emails/Easy_Emails1Cept.php:16
+</failure>
+    </testcase>
+    <testcase name="Easy_Emails2" file="/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/testCompanies/2/Easy_Emails2Cept.php" feature="login as a member" assertions="1" time="26.193404">
+      <failure type="Codeception\Exception\ElementNotFound">login as a member (Easy_Emails2Cept)
+Element located either by name, CSS or XPath '//div[@id='global']/div/div/div[1]/div/div[2]/md-content/div[2]/div/infos-mandataire/div/md-content/div/md-card/md-card-title/md-card-title-text/span' was not found.
+
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/_support/_generated/AcceptanceTesterActions.php:306
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/controllers/UserController.php:336
+/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/scripts/Easy_Emails/Easy_Emails2Cept.php:15
+</failure>
+    </testcase>
+    <testcase name="Easy_Emails3" file="/home/hab/public_html/testAutomation/testAutomation.Api/tests/1/testCompanies/2/Easy_Emails3Cept.php" feature="login as a member" assertions="0" time="21.761846"/>
+  </testsuite>
+</testsuites>

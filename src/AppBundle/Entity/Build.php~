@@ -1,0 +1,271 @@
+<?php
+/**
+ * This file defines the Build Manager
+ *
+ * @category AppBundle
+ * @package Entity
+ * @author Fondative <dev devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since File available since Release 1.0.0
+ */
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+
+/**
+ * Class Build
+ *
+ * @package Entity
+ * @author Fondative <devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since Class available since Release 1.0.0
+ *
+ */
+
+/**
+ * Build
+ *
+ * @ORM\Table(name="build", indexes={@ORM\Index(name="fk_build_projet_idx", columns={"projet_idprojet"})})
+ * @ORM\Entity
+ */
+class Build
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idbuild", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idbuild;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="date", type="string", length=45, nullable=true)
+     */
+    private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=45, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="is_deleted", type="string", length=45, nullable=true)
+     */
+    private $isDeleted;
+
+    /**
+     * @var \Project
+     *
+     * @ORM\ManyToOne(targetEntity="Project")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="projet_idprojet", referencedColumnName="idproject")
+     * })
+     */
+    private $projetprojet;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="TestCompany", inversedBy="buildbuild")
+     * @ORM\JoinTable(name="build_has_test_company",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="build_idbuild", referencedColumnName="idbuild")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="test_company_idtest_company", referencedColumnName="idtest_company")
+     *   }
+     * )
+     */
+    private $testCompanytestCompany;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->testCompanytestCompany = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Build
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set date
+     *
+     * @param string $date
+     *
+     * @return Build
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return string
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Build
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set isDeleted
+     *
+     * @param string $isDeleted
+     *
+     * @return Build
+     */
+    public function setIsDeleted($isDeleted)
+    {
+        $this->isDeleted = $isDeleted;
+
+        return $this;
+    }
+
+    /**
+     * Get isDeleted
+     *
+     * @return string
+     */
+    public function getIsDeleted()
+    {
+        return $this->isDeleted;
+    }
+
+    /**
+     * Get idbuild
+     *
+     * @return integer
+     */
+    public function getIdbuild()
+    {
+        return $this->idbuild;
+    }
+
+    /**
+     * Set projetprojet
+     *
+     * @param \AppBundle\Entity\Project $projetprojet
+     *
+     * @return Build
+     */
+    public function setProjetprojet(\AppBundle\Entity\Project $projetprojet = null)
+    {
+        $this->projetprojet = $projetprojet;
+
+        return $this;
+    }
+
+    /**
+     * Get projetprojet
+     *
+     * @return \AppBundle\Entity\Project
+     */
+    public function getProjetprojet()
+    {
+        return $this->projetprojet;
+    }
+
+    /**
+     * Add testCompanytestCompany
+     *
+     * @param \AppBundle\Entity\TestCompany $testCompanytestCompany
+     *
+     * @return Build
+     */
+    public function addTestCompanytestCompany(\AppBundle\Entity\TestCompany $testCompanytestCompany)
+    {
+        $this->testCompanytestCompany[] = $testCompanytestCompany;
+
+        return $this;
+    }
+
+    /**
+     * Remove testCompanytestCompany
+     *
+     * @param \AppBundle\Entity\TestCompany $testCompanytestCompany
+     */
+    public function removeTestCompanytestCompany(\AppBundle\Entity\TestCompany $testCompanytestCompany)
+    {
+        $this->testCompanytestCompany->removeElement($testCompanytestCompany);
+    }
+
+    /**
+     * Get testCompanytestCompany
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTestCompanytestCompany()
+    {
+        return $this->testCompanytestCompany;
+    }
+}

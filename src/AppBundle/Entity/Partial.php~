@@ -1,0 +1,180 @@
+<?php
+/**
+ * This file defines the Build Manager
+ *
+ * @category AppBundle
+ * @package Entity
+ * @author Fondative <dev devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since File available since Release 1.0.0
+ */
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * Class Partial
+ *
+ * @package Entity
+ * @author Fondative <devteam@fondative.com>
+ * @copyright 2015-2016 Fondative
+ * @version 1.0.0
+ * @since Class available since Release 1.0.0
+ *
+ */
+/**
+ * Partial
+ *
+ * @ORM\Table(name="partial", indexes={@ORM\Index(name="fk_partial_test_case1_idx", columns={"test_case_idtest_case"})})
+ * @ORM\Entity
+ */
+class Partial
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idpartial", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idpartial;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripti", type="string", length=45, nullable=true)
+     */
+    private $descripti;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rank", type="string", length=45, nullable=true)
+     */
+    private $rank;
+
+    /**
+     * @var \TestCase
+     *
+     * @ORM\ManyToOne(targetEntity="TestCase")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="test_case_idtest_case", referencedColumnName="idtest_case")
+     * })
+     */
+    private $testCasetestCase;
+
+
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Partial
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set descripti
+     *
+     * @param string $descripti
+     *
+     * @return Partial
+     */
+    public function setDescripti($descripti)
+    {
+        $this->descripti = $descripti;
+
+        return $this;
+    }
+
+    /**
+     * Get descripti
+     *
+     * @return string
+     */
+    public function getDescripti()
+    {
+        return $this->descripti;
+    }
+
+    /**
+     * Set rank
+     *
+     * @param string $rank
+     *
+     * @return Partial
+     */
+    public function setRank($rank)
+    {
+        $this->rank = $rank;
+
+        return $this;
+    }
+
+    /**
+     * Get rank
+     *
+     * @return string
+     */
+    public function getRank()
+    {
+        return $this->rank;
+    }
+
+    /**
+     * Get idpartial
+     *
+     * @return integer
+     */
+    public function getIdpartial()
+    {
+        return $this->idpartial;
+    }
+
+    /**
+     * Set testCasetestCase
+     *
+     * @param \AppBundle\Entity\TestCase $testCasetestCase
+     *
+     * @return Partial
+     */
+    public function setTestCasetestCase(\AppBundle\Entity\TestCase $testCasetestCase = null)
+    {
+        $this->testCasetestCase = $testCasetestCase;
+
+        return $this;
+    }
+
+    /**
+     * Get testCasetestCase
+     *
+     * @return \AppBundle\Entity\TestCase
+     */
+    public function getTestCasetestCase()
+    {
+        return $this->testCasetestCase;
+    }
+}

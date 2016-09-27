@@ -1,0 +1,83 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * Screenshot
+ */
+class Screenshot
+{
+    /**
+     * @var string
+     */
+    private $info;
+
+    /**
+     * @var integer
+     */
+    private $idresults;
+
+    /**
+     * @var \AppBundle\Entity\TestCaseHasTestCompany
+     */
+    private $testCaseHasTestCompanyTestCasetestCase;
+
+
+    /**
+     * Set info
+     *
+     * @param string $info
+     *
+     * @return Screenshot
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+
+        return $this;
+    }
+
+    /**
+     * Get info
+     *
+     * @return string
+     */
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    /**
+     * Get idresults
+     *
+     * @return integer
+     */
+    public function getIdresults()
+    {
+        return $this->idresults;
+    }
+
+    /**
+     * Set testCaseHasTestCompanyTestCasetestCase
+     *
+     * @param \AppBundle\Entity\TestCaseHasTestCompany $testCaseHasTestCompanyTestCasetestCase
+     *
+     * @return Screenshot
+     */
+    public function setTestCaseHasTestCompanyTestCasetestCase(\AppBundle\Entity\TestCaseHasTestCompany $testCaseHasTestCompanyTestCasetestCase = null)
+    {
+        $this->testCaseHasTestCompanyTestCasetestCase = $testCaseHasTestCompanyTestCasetestCase;
+
+        return $this;
+    }
+
+    /**
+     * Get testCaseHasTestCompanyTestCasetestCase
+     *
+     * @return \AppBundle\Entity\TestCaseHasTestCompany
+     */
+    public function getTestCaseHasTestCompanyTestCasetestCase()
+    {
+        return $this->testCaseHasTestCompanyTestCasetestCase;
+    }
+}
