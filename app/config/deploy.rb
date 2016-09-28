@@ -1,9 +1,14 @@
-set :application, "set your application name here"
-set :domain,      "#{application}.com"
-set :deploy_to,   "/var/www/#{domain}"
-set :app_path,    "app"
+set :application, "TestAutomation By Fondative"
+set :domain,      "192.168.7.186"
+set :user,        "hab"
 
-set :repository,  "#{domain}:/var/repos/#{application}.git"
+set :deploy_to,   "/public_html/testAutomation.Api/build"
+ssh_options[:forward_agent] = true
+set :app_path,    "app"
+set :repository, 'git@github.com:abbeshamza/habtest.git'
+set :use_sudo, false
+
+set :ssh_options, { :forward_agent => true, :port => 4321 }
 set :scm,         :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, or `none`
 
@@ -15,5 +20,7 @@ role :app,        domain, :primary => true       # This may be the same as your 
 
 set  :keep_releases,  3
 
+
 # Be more verbose by uncommenting the following line
 # logger.level = Logger::MAX_LEVEL
+
