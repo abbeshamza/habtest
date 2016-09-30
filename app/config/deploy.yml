@@ -19,11 +19,14 @@
   roles:
     - servergrove.symfony2
 
-  
-  tasks:
-    - name: Symfony | Setting up default permissions for cache folders 
-      command: "chmod -R 777 {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs"
+   tasks:
+    - name: Set cache folder permissions
+      shell: >
+        APACHEUSER=`ps aux | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data' | grep -v root | head -1 | cut -d\  -f1` &&
+        setfacl -R -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs &&
+        setfacl -dR -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs
 
     - shell: echo "deploy complete !!!"
       register: foo
     - debug: msg="{{ foo.stdout }}"
+
