@@ -38,7 +38,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        echo "here";  echo "hamza";
+        echo "here";  echo "hamza abbes";
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
