@@ -13,7 +13,7 @@
     symfony_project_composer_path: /home/hab/public_html/testhab/composer.phar
     symfony_project_cache_command: cache:warmup
     symfony_project_composer_opts: '--optimize-autoloader --no-interaction'
-    symfony_project_release: 123412
+    symfony_project_release:  {{ ansible_date_time.date }}
 
   roles:
     - servergrove.symfony2
@@ -23,6 +23,6 @@
     - name: Symfony | Setting up default permissions for cache folders 
       command: "chmod -R 777 {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs"
 
-    - shell: echo "deploy complete  {{ ansible_date_time.date }} !!!"
+    - shell: echo "deploy complete  !!!"
       register: foo
     - debug: msg="{{ foo.stdout }}"
