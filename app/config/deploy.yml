@@ -26,5 +26,4 @@
     - shell: echo "deploy complete  !!!"
       register: foo
     - debug: msg="{{ foo.stdout }}"
-    - set_fact: mydate="{{lookup('pipe','date +%Y%m%d%H%M%S')}}"
     
