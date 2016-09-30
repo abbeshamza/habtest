@@ -2,7 +2,7 @@
 - hosts: local
   vars:
     symfony_project_name: automation
-    symfony_project_root: /home/hab/public_html/test
+    symfony_project_root: /home/hab/public_html/testhab
     symfony_project_repo: https://github.com/abbeshamza/habtest.git
     ansible_ssh_user: test
     symfony_project_post_folder_creation_tasks:  empty.yml
