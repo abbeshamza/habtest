@@ -13,7 +13,7 @@
     symfony_project_composer_path: /home/hab/public_html/testAutomation.Api/shared/composer.phar
     symfony_project_cache_command: cache:warmup
     symfony_project_manage_composer: true
-    symfony_project_composer_opts: '--no-dev --optimize-autoloader --no-interaction'
+    symfony_project_composer_opts: '--optimize-autoloader --no-interaction'
     symfony_project_release: 'release120'
 
   roles:
