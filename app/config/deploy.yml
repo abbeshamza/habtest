@@ -2,6 +2,7 @@
 - hosts: local
   vars:
     symfony_project_name: automation
+    symfony_filename_date_part: "{{ansible_date_time.year}}{{ansible_date_time.month}}{{ansible_date_time.day}}{{ansible_date_time.hour}}{{ansible_date_time.minute}}{{ansible_date_time.second}}{{ansible_date_time.tz}}"
     symfony_project_root: /home/hab/public_html/testhab
     symfony_project_repo: https://github.com/abbeshamza/habtest.git
     ansible_ssh_user: test
@@ -13,16 +14,20 @@
     symfony_project_composer_path: /home/hab/public_html/testhab/composer.phar
     symfony_project_cache_command: cache:warmup
     symfony_project_composer_opts: '--optimize-autoloader --no-interaction'
-    symfony_project_release: {{ ansible_date_time.date }}
+    symfony_project_release:  "{{ symfony_filename_date_part }}"
+
 
   roles:
     - servergrove.symfony2
 
-  
   tasks:
-    - name: Symfony | Setting up default permissions for cache folders 
-      command: "chmod -R 777 {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs"
+   - name: Set cache folder permissions
+     shell: >
+       APACHEUSER=`ps aux | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data' | grep -v root | head -1 | cut -d\  -f1` &&
+       setfacl -R -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs &&
+       setfacl -dR -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs
 
-    - shell: echo "deploy complete !!!"
-      register: foo
-    - debug: msg="{{ foo.stdout }}"
+   - shell: echo "deploy complete !!!"
+     register: foo
+   - debug: msg="{{ foo.stdout }}"
+
