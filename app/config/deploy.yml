@@ -20,8 +20,7 @@
 
   
   tasks:
-     - name: Symfony | Setting up default permissions for cache folders 
-      command: "chmod -R 777 {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs"
+     
     - shell: echo "deploy complete  !!!"
       register: foo
     - debug: msg="{{ foo.stdout }}"
