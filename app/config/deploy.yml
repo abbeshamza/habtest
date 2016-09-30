@@ -13,7 +13,7 @@
     symfony_project_composer_path: /home/hab/public_html/testhab/composer.phar
     symfony_project_cache_command: cache:warmup
     symfony_project_composer_opts: '--optimize-autoloader --no-interaction'
-    symfony_project_release: {{ ansible_date_time.date }}
+    symfony_project_release: <datetime>
 
   roles:
     - servergrove.symfony2
