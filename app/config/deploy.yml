@@ -26,4 +26,6 @@
     - shell: echo "deploy complete  !!!"
       register: foo
     - debug: msg="{{ foo.stdout }}"
+    - debug: var=ansible_date_time
+    - debug: msg="the current date is {{ ansible_date_time.date }}"
     
