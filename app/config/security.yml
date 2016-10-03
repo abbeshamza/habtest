@@ -26,7 +26,7 @@ security:
                 require_previous_session: false
 
         api:
-            pattern:   ^/rest  #rest
+            pattern:   ^/arest  #rest
             stateless: true
             lexik_jwt:
                 authorization_header: # check token in Authorization Header
