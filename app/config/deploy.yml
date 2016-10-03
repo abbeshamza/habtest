@@ -1,4 +1,3 @@
----
 - hosts: local
   vars:
     symfony_project_name: automation
