@@ -42,7 +42,7 @@
     symfony_project_post_live_switch_tasks: empty.yml
     symfony_project_pre_live_switch_tasks: empty.yml
     symfony_project_parameters_file: parameter_dev.yml
-    symfony_parameters_path: /home/hab/public_html/devhab/shared/app/config/parameters.yml
+    symfony_project_parameters_file: /home/hab/public_html/devhab/shared/app/config/parameters.yml
     symfony_project_env: dev
     symfony_project_composer_path: /home/hab/public_html/devhab/composer.phar
     symfony_project_cache_command: cache:warmup
