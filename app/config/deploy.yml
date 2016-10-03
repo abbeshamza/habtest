@@ -60,8 +60,6 @@
        setfacl -R -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs &&
        setfacl -dR -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs
    - shell: echo "deploy complete !!!"
-   - name: Copy ansible inventory file to client
-     copy: src=/home/hab/public_html/devhab/shared/app/config/parameters.yml 
-     dest=/home/hab/public_html/devhab/current/app/config/parameters.yml
+   
       
         
