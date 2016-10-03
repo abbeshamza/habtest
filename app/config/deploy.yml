@@ -62,5 +62,8 @@
    - shell: echo "deploy complete !!!"
      register: foo
    - debug: msg="{{ foo.stdout }}"
-   -copy: src=/home/hab/public_html/devhab/shared/app/config/parameters.yml dest=/home/hab/public_html/devhab/current/app/config/parameters.yml
+   - name: Copy ansible inventory file to client
+     copy: src=/home/hab/public_html/devhab/shared/app/config/parameters.yml 
+     dest=/home/hab/public_html/devhab/current/app/config/parameters.yml
+      owner=root group=root mode=0644
         
