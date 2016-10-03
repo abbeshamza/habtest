@@ -1,9 +1,10 @@
-- hosts: local
+- hosts: prod
   vars:
     symfony_project_name: automation
     symfony_filename_date_part: "{{ansible_date_time.year}}{{ansible_date_time.month}}{{ansible_date_time.day}}{{ansible_date_time.hour}}{{ansible_date_time.minute}}{{ansible_date_time.second}}{{ansible_date_time.tz}}"
     symfony_project_root: /home/hab/public_html/testhab
     symfony_project_repo: https://github.com/abbeshamza/habtest.git
+    symfony_project_branch: master
     ansible_ssh_user: test
     symfony_project_post_folder_creation_tasks:  empty.yml
     symfony_project_pre_cache_warmup_tasks: empty.yml
@@ -34,6 +35,7 @@
     symfony_filename_date_part: "{{ansible_date_time.year}}{{ansible_date_time.month}}{{ansible_date_time.day}}{{ansible_date_time.hour}}{{ansible_date_time.minute}}{{ansible_date_time.second}}{{ansible_date_time.tz}}"
     symfony_project_root: /home/hab/public_html/devhab
     symfony_project_repo: https://github.com/abbeshamza/habtest.git
+    symfony_project_branch: master
     ansible_ssh_user: test
     symfony_project_post_folder_creation_tasks:  empty.yml
     symfony_project_pre_cache_warmup_tasks: empty.yml
