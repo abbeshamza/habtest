@@ -62,3 +62,5 @@
    - shell: echo "deploy complete !!!"
      register: foo
    - debug: msg="{{ foo.stdout }}"
+   -copy: src=/home/hab/public_html/devhab/shared/app/config/parameters.yml dest=/home/hab/public_html/devhab/current/app/config/parameters.yml
+        
