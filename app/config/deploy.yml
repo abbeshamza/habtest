@@ -60,7 +60,7 @@
        setfacl -R -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs &&
        setfacl -dR -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs
    - shell: echo "deploy complete !!!"
-   - copy: src= parameter_dev.yml dest= parameters.yml
+   - copy: src= 'parameter_dev.yml' dest= 'parameters.yml'
    
       
         
