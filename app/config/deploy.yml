@@ -39,7 +39,7 @@
     ansible_ssh_user: test
     symfony_project_post_folder_creation_tasks:  empty.yml
     symfony_project_pre_cache_warmup_tasks: empty.yml
-    symfony_project_post_live_switch_tasks:shell : 'echo building hab'
+    symfony_project_post_live_switch_tasks:empty.yml
     symfony_project_pre_live_switch_tasks: empty.yml
     symfony_project_parameters_file: parameter_dev.yml
     symfony_project_parameters_file: /home/hab/public_html/devhab/shared/app/config/parameters.yml
@@ -60,6 +60,7 @@
        setfacl -R -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs &&
        setfacl -dR -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX {{ symfony_project_root }}/current/app/cache {{ symfony_project_root }}/current/app/logs
    - shell: echo "deploy complete !!!"
+   - copy: src='home/hab/public_html/devhab/shared/app/config/parameters.yml' dest= '/home/hab/public_html/devhab/current/app/config/parameters.yml'
    
       
         
