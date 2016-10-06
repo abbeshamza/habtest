@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="projet" default="build">
+<project name="Lazyprojet" default="build">
   <property name="workspace" value="${basedir}" />
   <property name="sourcedir" value="${basedir}/src" />
   <property name="builddir" value="${workspace}/app/build" />
 
   <target name="build"
-          depends="prepare,vendors,parameters,lint,phploc,pdepend,phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/>
+  depends="prepare,vendors,parameters,lint,phploc,pdepend,phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/>
 
   <target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit,phpcb"/>
 
@@ -42,23 +42,23 @@
 
   <target name="lint" description="Perform syntax check of sourcecode files">
     <apply executable="php" failonerror="true">
-      <arg value="-l" />
-      <fileset dir="${sourcedir}">
-        <include name="**/*.php" />
-        <modified />
-      </fileset>
-      <fileset dir="${basedir}/src/">
-        <include name="**/*Test.php" />
-        <modified />
-      </fileset>
+    <arg value="-l" />
+    <fileset dir="${sourcedir}">
+      <include name="**/*.php" />
+      <modified />
+    </fileset>
+    <fileset dir="${basedir}/src/">
+      <include name="**/*Test.php" />
+      <modified />
+    </fileset>
     </apply>
   </target>
 
   <target name="phploc" description="Measure project size using PHPLOC">
     <exec executable="phploc">
-      <arg value="--log-csv" />
-      <arg value="${builddir}/logs/phploc.csv" />
-      <arg path="${sourcedir}" />
+    <arg value="--log-csv" />
+    <arg value="${builddir}/logs/phploc.csv" />
+    <arg path="${sourcedir}" />
     </exec>
   </target>
 
@@ -138,8 +138,9 @@
   </target>
 
   <target name="vendors" description="Update vendors">
-    <exec executable="composer" failonerror="true">
-      <arg value="update" />
+    <exec executable="php" failonerror="true">
+        <arg value="composer.phar" />
+        <arg value="update" />
     </exec>
   </target>
 
