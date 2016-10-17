@@ -5,6 +5,13 @@
     <property name="source" location="src/"/>
     <property name="build" location="build/"/>
 
+    <!-- Add vendors or code will fail --> 
+<target name="vendors" depends="clean" description="Add Vendors">
+<exec executable="php" failonerror="true">
+    <arg value='/usr/local/bin/composer/composer.phar' />
+    <arg value='install' />
+</exec>
+</target>
 
     <!-- Prepare the Workspace          -->
     <target name="clean" description="Cleanup build artifacts">
