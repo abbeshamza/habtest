@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="Lazyprojet" default="build">
+<project name="habproject" default="build">
   <property name="workspace" value="${basedir}" />
   <property name="sourcedir" value="${basedir}/src" />
   <property name="builddir" value="${workspace}/app/build" />
 
   <target name="build"
-  depends="prepare,vendors,parameters,lint,phploc,pdepend,phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/>
+  depends="prepare,vendor,parameters,lint,phploc,pdepend,phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/>
 
   <target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit,phpcb"/>
 
