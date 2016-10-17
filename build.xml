@@ -115,12 +115,12 @@
   <exec executable="phpdox"/>
  </target>
 
- <target name="phpunit" description="Run unit tests with PHPUnit">
-  <exec executable="phpunit" failonerror="true"/>
-  <arg value="-c" />
-        <arg path="${basedir}/app/phpunit.xml" />
- </target>
-
+ <target name="PHPUnit" description="Run PHPUnit unit tests">
+         <exec executable="phpunit" failonerror="true">
+        <arg value="-c" />
+        <arg path="/app/phpunit.xml" />
+    </exec>
+    </target>
  <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
   <exec executable="phpcb">
    <arg value="--log" />
