@@ -118,7 +118,7 @@
  <target name="phpunit" description="Run unit tests with PHPUnit">
   <exec executable="phpunit" failonerror="true"/>
   <arg value="-c" />
-        <arg path="/app/phpunit.xml" />
+        <arg path="${basedir}/app/phpunit.xml" />
  </target>
 
  <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
