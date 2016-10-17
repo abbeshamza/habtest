@@ -42,7 +42,7 @@
     <target name="PHPUnit" description="Run PHPUnit unit tests">
          <exec executable="phpunit" failonerror="true">
         <arg value="-c" />
-        <arg path="${workspace}/app/phpunit.xml.dist" />
+        <arg path="${workspace}/app/phpunit.xml" />
     </exec>
     </target>
 
