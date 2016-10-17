@@ -1,7 +1,7 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="Lazyprojet" default="build">
+<project name="ProjectTest" default="build">
   <property name="workspace" value="${basedir}" />
   <property name="sourcedir" value="${basedir}/src" />
   <property name="builddir" value="${workspace}/app/build" />
